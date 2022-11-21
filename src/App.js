@@ -6,26 +6,31 @@ const [result, setResult] = useState("");
 
 const ops = ['/', '*', '+', '-', '.'];
 
-const updateCalc = value => {
+const updateCalc = value => 
+{
   if (
-    ops.includes(value) && calc === '' ||
-    ops.includes(value) && ops.includes(calc.slice(-1)
+    (ops.includes(value) && calc === '') ||
+    (ops.includes(value) && ops.includes(calc.slice(-1))
     )
-  ) {
+  ) 
+  {
     return;
   }
 
   setCalc(calc + value);
 
-  if(!ops.includes(value)){
+  if(!ops.includes(value))
+  {
     setResult(eval(calc + value).toString());
   }
 }
 
-const createDigits = () => {
+const createDigits = () => 
+{
   const digits = [];
 
-  for (let i = 1; i < 10; i++) {
+  for (let i = 1; i < 10; i++) 
+  {
     digits.push(
       <button 
       onClick={() => updateCalc(i.toString())} 
@@ -36,11 +41,13 @@ const createDigits = () => {
   return digits;
 }
 
-const calculate = () => {
+const calculate = () => 
+{
   setCalc(eval(calc).toString());
 }
 
-const deleteLast = () => {
+const deleteLast = () => 
+{
   if (calc === ''){
     return;
   } 
